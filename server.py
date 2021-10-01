@@ -1,7 +1,11 @@
+import os
 from flask import Flask, render_template, request, redirect, session
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = config('secret_key', default='')
+app.secret_key = os.getenv('SECEST_KEY', 'for dev')
 
 
 @app.route('/')
